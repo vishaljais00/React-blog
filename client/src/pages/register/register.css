@@ -1,0 +1,55 @@
+.register{
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(45, 166, 247, 0.568),rgba(223, 118, 118, 0.5)), 
+    url("https://media.istockphoto.com/photos/every-time-you-open-a-book-you-learn-something-picture-id1182489122?b=1&k=20&m=1182489122&s=170667a&w=0&h=OUPs_giwFPXLNDzj-9ZZEKswO0ydMvtPKNFph4AX6JE=");
+    background-size:cover ;
+    object-fit: cover;
+}
+
+.registerTitle{
+    font-size: 50px;
+}
+
+.registerForm{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.registerForm >label{
+    margin: 10px 0;
+
+}
+
+.registerInput{
+    padding: 10px;
+    background-color: white;
+    border: none;
+
+}
+
+.registerButton{
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: teal;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.registerLoginButton{
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: lightcoral;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+}
