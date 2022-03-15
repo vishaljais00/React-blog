@@ -18,9 +18,9 @@ router.post("/register", async (req, res) => {
 
         const user = await newUser.save();
         res.status(200).json(user);
-        
+
     } catch (error) {
-        res.status(500).json({error });
+        res.status(500).json({ error });
     }
 })
 
@@ -29,19 +29,23 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
 
-    try{
+    try {
 
-        const user = await User.findOne({username: req.body.username})
-        !user && res.status(400).json("Wrong Credentials!")
+        const user = await User.findOne({ username: req.body.username });
+        //console.log(user);
+        if (!user) {
+            return  res.status(401).send({ message: "Wrong Credentials" });
+        }
 
-        const validated = await bcrypt.compare(req.body.password, user.password)
-        !validated  && res.status(400).json("Wrong Credentials!")
+        const validated = await bcrypt.compare(req.body.password, user.password);
+        if (!validated) {
+            return res.status(400).json("Wrong Credentials!");
+        }
 
-        const{password, ...others} = user._doc;
+        const { password, ...others } = user._doc;
         res.status(200).json(others)
 
-    }catch (error) {
-
+    } catch (error) {
         res.status(500).json(error)
     }
 })
